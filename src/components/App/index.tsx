@@ -1,7 +1,8 @@
 import React from 'react';
-import './App.css';
 
-function App() {
+import './styles.css';
+
+const App: React.FC = () => {
   return (
     <div className="app">App
     </div>
