@@ -2,7 +2,7 @@
  * @file Manages user requests.
  * @module services/UserService
  */
-import OpenWeatherMapAPI, { appid } from 'api/OpenWeatherMapAPI';
+import OpenWeatherMapAPI from 'api/OpenWeatherMapAPI';
 import Weather, { WeatherData } from 'models/weather';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -15,7 +15,7 @@ export const getWeather = async (
     const response = await OpenWeatherMapAPI.get<WeatherData>('weather', {
       params: {
         q: parameters.city,
-        appid,
+        appid: process.env.REACT_APP_NOT_SECRET_CODE,
         units: 'metric',
       },
     });
