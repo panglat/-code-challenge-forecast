@@ -15,7 +15,6 @@ export function SearchCity(
 ): SearchCityState {
   switch (action.type) {
     case ADD_CITY_TO_CITY_LIST:
-      debugger;
       return {
         cityList: [
           ...(state.cityList as CityListItem[]),

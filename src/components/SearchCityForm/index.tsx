@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, FormikProps } from 'formik';
-import { AddCityToCityList } from 'business/SearchCity/actions';
+import { addCityToCityList } from 'business/SearchCity/actions';
+import { requestWeather } from 'business/Weather/actions';
 
 import './styles.scss';
 
@@ -30,7 +31,8 @@ const SearchCityForm: React.FC = () => {
           return errors;
         }}
         onSubmit={(values: FormValues) => {
-          dispatch(AddCityToCityList(values.city));
+          dispatch(addCityToCityList(values.city));
+          dispatch(requestWeather(values.city));
         }}
         validateOnMount
       >

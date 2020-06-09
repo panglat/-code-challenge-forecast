@@ -1,16 +1,25 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from './rootReducer';
+import rootSaga from './rootSaga';
 
-export default function configureStore(preloadedState = {}) {
-  const composedEnhancers = composeWithDevTools();
+// create the saga middleware
+const sagaMiddleware = createSagaMiddleware();
 
-  const store = createStore(rootReducer, preloadedState, composedEnhancers);
+export default function configureStore() {
+  const composeEnhancers = composeWithDevTools({
+    // Specify name here, actionsBlacklist, actionsCreators and other options if needed
+  });
 
-  if (process.env.NODE_ENV !== 'production' && module.hot) {
-    module.hot.accept('./rootReducer', () => store.replaceReducer(rootReducer));
-  }
+  // mount it on the Store
+  const store = createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(sagaMiddleware))
+  );
 
+  // then run the saga
+  sagaMiddleware.run(rootSaga);
   return store;
 }
