@@ -1,3 +1,5 @@
+import Weather from 'models/weather';
+
 export const WEATHER_FETCH_REQUESTED = 'WEATHER_FETCH_REQUESTED';
 export const WEATHER_FETCH_SUCCEEDED = 'WEATHER_FETCH_SUCCEEDED';
 export const WEATHER_FETCH_FAILED = 'WEATHER_FETCH_FAILED';
@@ -9,7 +11,7 @@ export interface WeatherFetchRequestedAction {
 
 interface WeatherFetchSucceededAction {
   type: typeof WEATHER_FETCH_SUCCEEDED;
-  payload: string;
+  payload: Weather;
 }
 
 interface WeatherFetchFailedAction {
@@ -24,7 +26,7 @@ export type WeatherActions =
 
 export interface WeatherState {
   city: string | null;
-  weather: string | null;
+  weather: Weather | null;
   loading: boolean;
   error: string | null;
 }

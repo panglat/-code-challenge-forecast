@@ -29,7 +29,7 @@ export function Weather(
         ...state,
         loading: false,
         error: null,
-        weather: action.payload, // { ..action.payload.response },
+        weather: action.payload,
       };
 
     case WEATHER_FETCH_FAILED:
@@ -37,7 +37,7 @@ export function Weather(
         ...state,
         loading: false,
         weather: null,
-        error: action.payload, // action.payload.error,
+        error: action.payload,
       };
 
     default:

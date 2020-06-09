@@ -4,6 +4,7 @@ import {
   WEATHER_FETCH_FAILED,
   WeatherActions,
 } from './types';
+import Weather from 'models/weather';
 
 export function requestWeather(cityName: string): WeatherActions {
   return {
@@ -12,7 +13,7 @@ export function requestWeather(cityName: string): WeatherActions {
   };
 }
 
-export function requestWeatherSuccess(response: string): WeatherActions {
+export function requestWeatherSuccess(response: Weather): WeatherActions {
   return {
     type: WEATHER_FETCH_SUCCEEDED,
     payload: response,
