@@ -1,5 +1,16 @@
 @import 'global-styles/globals.scss';
 
 .latest-cities {
-  text-align: center;
+  &__city {
+    font-size: 1em;
+    text-align: left;
+    color: $color-link;
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+
+    -moz-user-select: text;
+  }
 }

@@ -1,4 +1,23 @@
 @import 'global-styles/globals.scss';
 
 .search-city-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+  }
+
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+  }
+
+  &__latest-cities {
+    margin-bottom: 1em;
+  }
 }

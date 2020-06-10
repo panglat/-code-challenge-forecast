@@ -51,7 +51,7 @@ const SearchCityForm: React.FC = () => {
               <h1 className="search-city-form__header">Search City</h1>
               <div className="search-city-form__group">
                 <label className="search-city-form__label" htmlFor="cityName">
-                  City:
+                  City:{' '}
                   <input
                     name="city"
                     className="search-city-form__input-text"
@@ -62,8 +62,6 @@ const SearchCityForm: React.FC = () => {
                     value={values.city}
                   />
                 </label>
-              </div>
-              <div className="search-city-form__button-group">
                 <button
                   type="submit"
                   disabled={!isValid || isLoading}
@@ -72,14 +70,15 @@ const SearchCityForm: React.FC = () => {
                   Search
                 </button>
               </div>
+              <LatestCities
+                className="search-city-form__latest-cities"
+                disabled={isLoading}
+                onCitySelected={(city) => {
+                  setFieldValue('city', city);
+                  setTimeout(() => handleSubmit());
+                }}
+              />
             </form>
-            <LatestCities
-              disabled={isLoading}
-              onCitySelected={(city) => {
-                setFieldValue('city', city);
-                setTimeout(() => handleSubmit());
-              }}
-            />
           </>
         )}
       </Formik>
