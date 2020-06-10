@@ -43,21 +43,28 @@ class WeatherMain {
   }
 }
 
+export interface WeatherSysData {
+  country: string;
+}
+
 export interface WeatherData {
   coord: CoordinatesData;
   main: WeatherMainData;
   name: string;
+  sys: WeatherSysData;
 }
 
 class Weather {
   readonly coordinates: Coordinates;
   readonly main: WeatherMain;
   readonly cityName: string;
+  readonly country: string;
 
-  constructor({ coord, main, name }: WeatherData) {
+  constructor({ coord, main, name, sys }: WeatherData) {
     this.coordinates = new Coordinates(coord);
     this.main = new WeatherMain(main);
     this.cityName = name;
+    this.country = sys.country;
   }
 }
 
