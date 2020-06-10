@@ -4,13 +4,17 @@ import { latestCities as latestCitiesAction } from 'business/SearchCity/selector
 
 import './styles.scss';
 
-const LatestCities: React.FC = () => {
+interface LatestCitiesProps {
+  onCitySelected: (city: string) => void;
+}
+
+const LatestCities: React.FC<LatestCitiesProps> = ({ onCitySelected }) => {
   const latestCities = useSelector(latestCitiesAction) as string[];
   return (
     <div className="latest-cities">
       Latest Cities:{' '}
       {latestCities.map((cityName, index) => (
-        <span key={cityName}>
+        <span key={cityName} onClick={() => onCitySelected(cityName)}>
           {cityName}
           {index < 4 && ','}{' '}
         </span>
