@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles.scss';
 import { useSelector } from 'react-redux';
 import {
   getWeather,
@@ -7,6 +6,8 @@ import {
   getWeatherError,
 } from 'business/Weather/selectors';
 import { AxiosError } from 'axios';
+
+import './styles.scss';
 
 const WeatherResult: React.FC = () => {
   const weather = useSelector(getWeather);

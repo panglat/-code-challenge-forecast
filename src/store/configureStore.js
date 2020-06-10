@@ -8,7 +8,7 @@ import rootSaga from './rootSaga';
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
-export default function configureStore() {
+export default function configureStore(preloadedState = {}) {
   const composeEnhancers = composeWithDevTools({
     // Specify name here, actionsBlacklist, actionsCreators and other options if needed
   });
@@ -16,6 +16,7 @@ export default function configureStore() {
   // mount it on the Store
   const store = createStore(
     rootReducer,
+    preloadedState,
     composeEnhancers(applyMiddleware(sagaMiddleware))
   );
 

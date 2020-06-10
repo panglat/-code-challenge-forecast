@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Formik, FormikProps } from 'formik';
 import { addCityToCityList } from 'business/SearchCity/actions';
 import { requestWeather } from 'business/Weather/actions';
+import { getWeatherLoading } from 'business/Weather/selectors';
 
 import './styles.scss';
-import { getWeatherLoading } from 'business/Weather/selectors';
 
 interface FormValues {
   city: string;
