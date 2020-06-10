@@ -30,12 +30,30 @@ const WeatherResult: React.FC = () => {
   );
 
   const renderWeather = () => (
-    <div className="weather-result__weather">{JSON.stringify(weather)}</div>
+    <div className="weather-result__weather">
+      <h3 className="weather-result__weather-header">
+        Weather for {`${weather?.cityName}, ${weather?.country}`}
+      </h3>
+      <p className="weather-result__weather-item">
+        <strong>Temperature:</strong> {weather?.main.temp} °C
+      </p>
+      <p className="weather-result__weather-item">
+        <strong>Pressure:</strong> {weather?.main.pressure} hPa
+      </p>
+      <p className="weather-result__weather-item">
+        <strong>Humidity:</strong> {weather?.main.humidity} %
+      </p>
+      <p className="weather-result__weather-item">
+        <strong>Max temperature:</strong> {weather?.main.temp_max} °C
+      </p>
+      <p className="weather-result__weather-item">
+        <strong>Min temperature:</strong> {weather?.main.temp_min} °C
+      </p>
+    </div>
   );
 
   return (
     <div className="weather-result">
-      <h3>Weather</h3>
       {isLoading && renderLoading()}
       {weather && renderWeather()}
       {error && renderError()}
