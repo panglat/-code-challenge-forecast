@@ -55,9 +55,11 @@ const WeatherResult: React.FC = () => {
 
   return (
     <div className="weather-result">
-      {isLoading && renderLoading()}
-      {weather && renderWeather()}
-      {error && renderError()}
+      <div className="weather-result__container">
+        {isLoading && renderLoading()}
+        {weather && renderWeather()}
+        {error && renderError()}
+      </div>
     </div>
   );
 };

@@ -1,5 +1,15 @@
 @import 'global-styles/globals.scss';
 
 .weather-result {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    width: 320px;
+  }
+
+  &__weather-header {
+    text-align: center;
+  }
 }

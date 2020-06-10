@@ -11,6 +11,10 @@
     max-width: 320px;
   }
 
+  &__header {
+    text-align: center;
+  }
+
   &__group {
     display: flex;
     justify-content: space-between;
