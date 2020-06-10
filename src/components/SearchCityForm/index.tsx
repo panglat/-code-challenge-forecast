@@ -74,6 +74,7 @@ const SearchCityForm: React.FC = () => {
               </div>
             </form>
             <LatestCities
+              disabled={isLoading}
               onCitySelected={(city) => {
                 setFieldValue('city', city);
                 setTimeout(() => handleSubmit());
