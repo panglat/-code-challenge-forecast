@@ -1,10 +1,11 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, FormikProps } from 'formik';
 import { addCityToCityList } from 'business/SearchCity/actions';
 import { requestWeather } from 'business/Weather/actions';
 
 import './styles.scss';
+import { getWeatherLoading } from 'business/Weather/selectors';
 
 interface FormValues {
   city: string;
@@ -16,6 +17,7 @@ interface FormError {
 
 const SearchCityForm: React.FC = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(getWeatherLoading);
 
   return (
     <div className="search-city-form">
@@ -63,7 +65,7 @@ const SearchCityForm: React.FC = () => {
             <div className="search-city-form__button-group">
               <button
                 type="submit"
-                disabled={!isValid}
+                disabled={!isValid || isLoading}
                 className="search-city-form__button"
               >
                 Search

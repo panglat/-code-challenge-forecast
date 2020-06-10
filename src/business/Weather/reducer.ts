@@ -7,7 +7,6 @@ import {
 } from './types';
 
 const initialState: WeatherState = {
-  city: null,
   loading: false,
   error: null,
   weather: null,
@@ -22,6 +21,8 @@ export function Weather(
       return {
         ...state,
         loading: true,
+        error: null,
+        weather: null,
       };
 
     case WEATHER_FETCH_SUCCEEDED:

@@ -16,7 +16,7 @@ interface WeatherFetchSucceededAction {
 
 interface WeatherFetchFailedAction {
   type: typeof WEATHER_FETCH_FAILED;
-  payload: string;
+  payload: Error;
 }
 
 export type WeatherActions =
@@ -25,8 +25,7 @@ export type WeatherActions =
   | WeatherFetchFailedAction;
 
 export interface WeatherState {
-  city: string | null;
   weather: Weather | null;
   loading: boolean;
-  error: string | null;
+  error: Error | null;
 }

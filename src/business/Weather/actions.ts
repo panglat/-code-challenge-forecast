@@ -20,7 +20,7 @@ export function requestWeatherSuccess(response: Weather): WeatherActions {
   };
 }
 
-export function requestWeatherError(error: string): WeatherActions {
+export function requestWeatherError(error: Error): WeatherActions {
   return {
     type: WEATHER_FETCH_FAILED,
     payload: error,

@@ -8,7 +8,7 @@ function* fetchWeather(action: WeatherFetchRequestedAction) {
     const result = yield call(() => getWeather({ city: action.payload }));
     yield put(requestWeatherSuccess(result));
   } catch (e) {
-    yield put(requestWeatherError(e.message));
+    yield put(requestWeatherError(e));
   }
 }
 
