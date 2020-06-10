@@ -2,7 +2,6 @@ import {
   SearchCityState,
   SearchCityActions,
   ADD_CITY_TO_CITY_LIST,
-  CityListItem,
 } from './types';
 
 const initialState: SearchCityState = {
@@ -15,10 +14,21 @@ export function SearchCity(
 ): SearchCityState {
   switch (action.type) {
     case ADD_CITY_TO_CITY_LIST:
+      const cityItem = state.cityList?.find((c) => c === action.payload);
+      if (cityItem) {
+        return {
+          cityList: [
+            action.payload,
+            ...(state.cityList?.filter(
+              (ci) => ci !== action.payload
+            ) as string[]),
+          ],
+        };
+      }
       return {
         cityList: [
-          ...(state.cityList as CityListItem[]),
-          { name: action.payload, timeStamp: Date.now() },
+          action.payload,
+          ...(state.cityList?.filter((ci, index) => index < 4) as string[]),
         ],
       };
 

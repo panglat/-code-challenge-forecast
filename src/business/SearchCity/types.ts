@@ -5,13 +5,8 @@ interface AddCityToCityListAction {
   payload: string;
 }
 
-export interface CityListItem {
-  name: string;
-  timeStamp: number;
-}
-
 export type SearchCityActions = AddCityToCityListAction;
 
 export interface SearchCityState {
-  cityList: CityListItem[] | null;
+  cityList: string[] | null;
 }

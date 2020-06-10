@@ -1,17 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { latestCities as latestCitiesAction } from 'business/SearchCity/selectors';
-import { CityListItem } from 'business/SearchCity/types';
 
 import './styles.scss';
 
 const LatestCities: React.FC = () => {
-  const latestCities = useSelector(latestCitiesAction) as CityListItem[];
+  const latestCities = useSelector(latestCitiesAction) as string[];
   return (
     <div className="latest-cities">
-      Latest Cities:
-      {latestCities.map((cityItem: CityListItem) => (
-        <span>{cityItem.name}, </span>
+      Latest Cities:{' '}
+      {latestCities.map((cityName, index) => (
+        <span key={cityName}>
+          {cityName}
+          {index < 4 && ','}{' '}
+        </span>
       ))}
     </div>
   );
