@@ -48,7 +48,7 @@ const SearchCityForm: React.FC = () => {
         }: FormikProps<FormValues>) => (
           <>
             <form className="search-city-form__form" onSubmit={handleSubmit}>
-              <h1 className="search-city-form__header">Search City</h1>
+              <h1 className="search-city-form__header">City Forecast</h1>
               <div className="search-city-form__group">
                 <label className="search-city-form__label" htmlFor="cityName">
                   City:{' '}
