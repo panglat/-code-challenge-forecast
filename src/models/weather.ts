@@ -3,7 +3,7 @@ export interface CoordinatesData {
   lon: number;
 }
 
-class Coordinates {
+export class Coordinates {
   readonly lat: number;
   readonly lon: number;
 

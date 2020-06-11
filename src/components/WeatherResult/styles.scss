@@ -12,4 +12,10 @@
   &__weather-header {
     text-align: center;
   }
+
+  &__weather-map {
+    &--hidden {
+      opacity: 0;
+    }
+  }
 }

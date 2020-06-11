@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {
   getWeather,
@@ -6,6 +6,8 @@ import {
   getWeatherError,
 } from 'business/Weather/selectors';
 import { AxiosError } from 'axios';
+import { Coordinates } from 'models/weather';
+import cn from 'classnames';
 
 import './styles.scss';
 
@@ -13,6 +15,11 @@ const WeatherResult: React.FC = () => {
   const weather = useSelector(getWeather);
   const isLoading = useSelector(getWeatherLoading);
   const error = useSelector(getWeatherError);
+  const [mapLoading, setMapLoading] = useState(false);
+
+  useEffect(() => {
+    setMapLoading(true);
+  }, [weather]);
 
   const renderLoading = () => (
     <div className="weather-result__loading">Getting the weather...</div>
@@ -50,8 +57,39 @@ const WeatherResult: React.FC = () => {
       <p className="weather-result__weather-item">
         <strong>Min temperature:</strong> {weather?.main.temp_min} °C
       </p>
+      {renderMap()}
     </div>
   );
+
+  const renderMap = () => {
+    const coordinates = weather?.coordinates as Coordinates;
+    const diffLat = 0.01246;
+    const diffLong = 0.02038;
+    const bottomLeft = new Coordinates({
+      lat: coordinates.lat - diffLat,
+      lon: coordinates.lon - diffLong,
+    });
+    const topRight = new Coordinates({
+      lat: coordinates.lat + diffLat,
+      lon: coordinates.lon + diffLong,
+    });
+    const url = `http://www.openstreetmap.org/export/embed.html?bbox=${bottomLeft.lon},${bottomLeft.lat},${topRight.lon},${topRight.lat}&layer=mapnik&marker=${coordinates.lat},${coordinates.lon}`;
+
+    return (
+      <div className="weather-result__weather-map">
+        {mapLoading && 'Getting the map...'}
+        <iframe
+          className={cn({ 'weather-result__weather-map--hidden': mapLoading })}
+          title="map"
+          width="320"
+          height="350"
+          scrolling="no"
+          src={url}
+          onLoad={() => setMapLoading(false)}
+        />
+      </div>
+    );
+  };
 
   return (
     <div className="weather-result">
