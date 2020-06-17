@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d280d8a8f007551d813030cdf8aa89ed",
+    "revision": "85304dc1ab9bac8b5f5f18c094477b2d",
     "url": "/code-challenge-forecast/index.html"
   },
   {
-    "revision": "77baea6b8f29aa7c2b51",
+    "revision": "e79f9d1ceb4653829b48",
     "url": "/code-challenge-forecast/static/css/main.a89becec.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/code-challenge-forecast/static/js/2.5733cbd1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "77baea6b8f29aa7c2b51",
-    "url": "/code-challenge-forecast/static/js/main.ff959b87.chunk.js"
+    "revision": "e79f9d1ceb4653829b48",
+    "url": "/code-challenge-forecast/static/js/main.a0f2e2ee.chunk.js"
   },
   {
     "revision": "bd14f86367c003afe09e",
