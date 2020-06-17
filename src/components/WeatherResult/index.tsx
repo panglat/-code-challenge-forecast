@@ -73,7 +73,7 @@ const WeatherResult: React.FC = () => {
       lat: coordinates.lat + diffLat,
       lon: coordinates.lon + diffLong,
     });
-    const url = `http://www.openstreetmap.org/export/embed.html?bbox=${bottomLeft.lon},${bottomLeft.lat},${topRight.lon},${topRight.lat}&layer=mapnik&marker=${coordinates.lat},${coordinates.lon}`;
+    const url = `https://www.openstreetmap.org/export/embed.html?bbox=${bottomLeft.lon},${bottomLeft.lat},${topRight.lon},${topRight.lat}&layer=mapnik&marker=${coordinates.lat},${coordinates.lon}`;
 
     return (
       <div className="weather-result__weather-map">
