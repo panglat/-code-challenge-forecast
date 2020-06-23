@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Demo
+
+This a link to a demo of this app: [Forecast App](https://panglat.github.io/code-challenge-forecast/).
+
 ## Available Scripts
 
 In the project directory, you can run:
